@@ -22,10 +22,12 @@
             extensions = [ "rust-src" "clippy" "rustfmt" ];
           };
 
+          cargoToml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
+
           # Define the package
           passgen = pkgs.rustPlatform.buildRustPackage {
             pname = "passgen";
-            version = "0.1.0";
+            version = cargoToml.package.version;
             src = ./.;
 
             cargoLock = {
