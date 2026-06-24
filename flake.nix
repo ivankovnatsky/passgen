@@ -33,7 +33,6 @@
             };
 
             buildInputs = [ ] ++ (if pkgs.stdenv.isDarwin then [
-              pkgs.darwin.apple_sdk.frameworks.Security
               pkgs.libiconv
             ] else [ ]);
 
@@ -56,7 +55,6 @@
               rust
               pkgs.rust-analyzer
             ] ++ (if pkgs.stdenv.isDarwin then [
-              pkgs.darwin.apple_sdk.frameworks.Security
               pkgs.libiconv
             ] else [ ]);
 
